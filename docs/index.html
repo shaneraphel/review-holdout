@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8" /><title>Review hold-out</title>
+<style>body{font-family:ui-sans-serif,system-ui,sans-serif;margin:2rem;max-width:44rem}</style></head>
+<body>
+<h1>Review hold-out</h1>
+<p>An empty test list is unscored, not a pass.</p>
+<pre id="out"></pre>
+<script>
+function verdict(paths, passed) {
+  if (!paths.length) return null;
+  return paths.every(passed);
+}
+document.getElementById("out").textContent =
+  "empty: " + verdict([], () => true) + "\n" +
+  "fail: " + verdict(["a"], () => false) + "\n" +
+  "pass: " + verdict(["a"], () => true);
+</script>
+</body></html>
